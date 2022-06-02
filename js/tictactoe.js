@@ -240,7 +240,7 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
 //this function resets the game in the event of a tie or a win
 function resetGame() {
     //this for loop iterate through each HTML square element
-    for (let i = 0; 1 < 9; i++) {
+    for (let i = 0; 1 < 9; i++) { 
         //This variable gets the html element of i
         let square = document.getElementById(String(i))
         //This removes our elements backgroundImage
