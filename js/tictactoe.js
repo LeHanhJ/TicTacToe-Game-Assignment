@@ -244,7 +244,7 @@ function resetGame() {
         //This variable gets the html element of i
         let square = document.getElementById(String(i))
         //This removes our elements backgroundImage
-        square.style.backgroundImage = ''
+        square.style.backgroundImage = '' 
     }
     //This resets our array so it is empty and we can start over
     selectedSquares = [];
