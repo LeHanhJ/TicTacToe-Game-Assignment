@@ -17,11 +17,11 @@ function placeXorO(squareNumber){
         //this condition checks whose turn it is
         if (activePlayer==='X'){
             //if activePlayer is equal to X, the x.png is placed in HTML
-            select.style.backgroundImage = 'url("images/X.png")';
+            select.style.backgroundImage = 'url("./images/CD-O-resize.png")';
             //active player may only be X or O so, if not X it must be O
         } else {
             //if activePlayer is equal to 'O', the O.png is placed in HTML
-            select.style.backgroundImage= 'url("images/O.png")';
+            select.style.backgroundImage= 'url("images/FD-X-resize.png")';
         }
         //squareNumber and activePlayer are concatenated together and added to array
         selectedSquares.push(squareNumber + activePlayer);
@@ -37,9 +37,10 @@ function placeXorO(squareNumber){
             activePlayer='X';
         }
         //This function plays placement sound
-        audio('./media/place.mp3');
+        audio('./media/click.mp3');
         //This condition checks to see if it is computer's turn
         if(activePlayer ==='O') {
+            //audio('./media/click2.mp3');
             //This function disables clicking for computer choice
             disableClick();
             //this function waits 1 second before computer places image and enables click
@@ -113,7 +114,7 @@ function checkWinConditions() {
     //squares are selected, the code executes
     else if (selectedSquares.length >= 9) {
         //This function plays the tie game sound
-        audio('./media/tie.mp3');
+        audio('./media/tieGame.mp3');
         //This function sets a .3 second timer before the resetGame is called
         setTimeout(function () { resetGame() }, 1000);
     }
@@ -213,6 +214,7 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
             if (y > y2) { y-=10; }
             if (x >= x2 && y<=y2) {cancelAnimationFrame(animationLoop); }
         }
+        
     }
 
     //This function clears our canvas after our win line is drawn
@@ -228,7 +230,7 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
     //This line disallows clicking while the win sound is playing
     disableClick();
     //This line plays the win sounds
-    audio('./media/winGame.mp3');
+    audio('./media/you_win.mp3');
     //This line calls out main animation loop
     animateLineDrawing();
     //This line waits 1 second. Then, clears canvas, resets game, and allows clicking again
